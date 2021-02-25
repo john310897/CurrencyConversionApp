@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  
+}
+body{
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .App-logo {
@@ -35,4 +39,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+#converter_box{
+  margin-top: 10%;
+  width:auto;
+  height: auto;
+  
+  
+}
+#converter_box #result{
+
+background-color: bisque;
+font-weight: bolder;
+font-size: larger;
+padding: 5%;
+border: 5px solid goldenrod;
+}
+#auth_box{
+  margin-top: 10%;
+  height: auto;
+  width: 500px;
+  
 }

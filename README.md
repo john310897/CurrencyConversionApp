@@ -1,5 +1,5 @@
 # Currency conversion application
-This application was developed using front-end as react.js 
+This application was developed using react.js 
 ## Application modules
 -Sign up
 -Login

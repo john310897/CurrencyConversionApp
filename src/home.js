@@ -1,17 +1,18 @@
 import React, { useState,useEffect } from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 function Home(){
 
     const [items,setItems]=useState([]);
     const [country,setcountry]=useState([]);
     const [country2,setcountry2]=useState([]);
         
-
     useEffect(()=>{
         fetchData();
     },[]);
 
     const fetchData=async()=>{
+
         const result=await Axios.get('http://data.fixer.io/api/latest?access_key=ac4c0c5f5d73de1722884c060216bd47');
         console.log(result);
         setItems(result);
@@ -20,21 +21,31 @@ function Home(){
 
 
     }
-    const convert=()=>{
+    const convert=(e)=>{
+        try{
         var amt1,amt2,c1,c2="";
         amt1=document.getElementById('amount1').value;
         c1=document.getElementById('cur1').value;
         c2=document.getElementById('cur2').value;
         var x=document.getElementById('cur2').options;
         var y=document.getElementById('cur2').selectedIndex;
+        
         const num=(c2/c1)*amt1;
         document.getElementById("result").innerHTML=num+" "+x[y].text;
-        
+        }catch(Exception){
+            document.getElementById('error_msg').style.display='block';
+            document.getElementById("error_msg").innerHTML="Week network / Unable to access API";
+        }
+        e.preventDefault();
     }
     return(
        
         <div className='container' id='converter_box'>
              <h2 align='center'>Currency converter</h2>
+             <div id='error_msg' className='alert alert-danger'>
+                
+            </div>
+            
             <div id='result'>
             
             </div>
@@ -69,7 +80,8 @@ function Home(){
             
             <br/>
             
-            <button className='form-control btn btn-warning' onClick={convert.bind(this)}>Convert</button>
+            <button className='form-control btn btn-warning' onClick={convert.bind(this)}>Convert</button><br/><br/>
+            <Link to='/'>Logout</Link>
             </form>            
         </div>
         

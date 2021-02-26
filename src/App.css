@@ -42,7 +42,7 @@ body{
 }
 #converter_box{
   margin-top: 10%;
-  width:auto;
+  width:600px;
   height: auto;
   
   
@@ -60,4 +60,17 @@ border: 5px solid goldenrod;
   height: auto;
   width: 500px;
   
+}
+#auth_box button{
+  background-color: #282c34;
+}
+#converter_box button{
+  background-color: #282c34;
+  color: antiquewhite;
+  font-size: larger;
+  font-weight: bold;
+}
+#error_msg{
+  text-align: left;
+  display: none;
 }
